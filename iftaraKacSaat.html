@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html style="font-size:100%;width:100%;margin:0px;padding:0px;-ms-overflow-style: scrollbar;-webkit-tap-highlight-color: transparent;-webkit-box-sizing: border-box;box-sizing: border-box;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+<head>
+    <meta charset="utf-8">
+    <title>Iftara Kalan</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="robots" content="noimageindex, noarchive">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <style>
+        a {text-decoration: none;}
+        .cnrsmall, .cnrbig {width: 100%;display: block;margin-bottom: 20px;position: relative;display: table;}
+        .cnrbig {background-image: url('');background-size: contain;background-repeat: no-repeat;}
+        .cnrbig {margin-top: 20px;}
+        .cnrdleft {position: relative;top: 0;left: 0;width: 100%;text-align: center;box-sizing: border-box;padding-top: 84px;line-height: 1.2em !important;font-size: 1.3em !important;display: block;color: #fff;font-weight: 700;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;}
+        .cnrbig img {width: 100%;}
+        .cnrbig {max-width: 800px;margin-left: auto;margin-right: auto;}
+    </style>
+</head>
+<body style="background: #FFFFFF !important;color:rgb(0,0,0) !important;font-family: -apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size: 1rem;font-weight: 400;line-height: 1.5;width:100%;margin:0px;padding:0px;">
+    <div style="position: relative;width:100%;margin:0px;padding:0px;*zoom:1;height: 100%;min-height: 568px;">
+        <div class="cnrbig">
+            <div>
+                <img src="">
+                <span class="cnrdleft" id="bayramaKalanSonuc">
+                    <strong>12 gün kaldı</strong>
+                </span>
+                <br/>
+                <span class="cnrdleft" id="iftaraKalanSonuc">
+                    <strong>8 saat kaldı</strong>
+                </span>
+                <br/>
+                <span class="cnrdleft" id="mesaKalanSonuc">
+                    <strong>4 saat kaldı</strong>
+                </span>
+                <br/>
+                <span class="cnrdleft" id="bayramaKalanSaatSonuc">
+                    <strong>4 saat kaldı</strong>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+    <script type="text/javascript">
+        var dakikaAyar = 34;
+		var kalanToplamSaat = 17;
+        switch (new Date().getDate()) {
+            case 29:
+                dakikaAyar = 34; break;
+            case 30:
+                dakikaAyar = 35; break;
+            case 31:
+                dakikaAyar = 36; break;
+            case 1:
+                dakikaAyar = 36; break;
+            case 2:
+                dakikaAyar = 37; break;
+            case 3:
+                dakikaAyar = 38; break;
+            case 4:
+                dakikaAyar = 39; break;
+            case 5:
+                dakikaAyar = 39; break;
+            case 6:
+                dakikaAyar = 40;kalanToplamSaat = 8*17;break;
+            case 7:
+                dakikaAyar = 41;kalanToplamSaat = 7*17;break;
+            case 8:
+                dakikaAyar = 41;kalanToplamSaat = 6*17;break;
+            case 9:
+                dakikaAyar = 42;kalanToplamSaat = 6*17;break;
+            case 10:
+                dakikaAyar = 42;kalanToplamSaat = 5*17;break;
+            case 11:
+                dakikaAyar = 43;kalanToplamSaat = 4*17;break;
+            case 12:
+                dakikaAyar = 43;kalanToplamSaat = 3*17;break;
+            case 13:
+                dakikaAyar = 44;kalanToplamSaat = 2*17;break;
+            case 14:
+                dakikaAyar = 44;kalanToplamSaat = 1*17;break;
+            default:
+                dakikaAyar = 44;kalanToplamSaat = 1*17;break;
+        }
+        var iftarSaat = new Date();
+        iftarSaat.setHours(20, dakikaAyar, 00, 000);
+        var iftarSaatSinir = new Date();
+		if(iftarSaat.getTime() > iftarSaatSinir.getTime())
+		{
+        var bayramaKalan = new Date("June 14, 2018 20:44:00").getTime();
+        var x = setInterval(function () {
+            var simdi = new Date().getTime();
+            var bayramaKalanSure = bayramaKalan - simdi;
+            var gunB = Math.floor(bayramaKalanSure / (1000 * 60 * 60 * 24));
+            var saatB = Math.floor((bayramaKalanSure % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var dakikaB = Math.floor((bayramaKalanSure % (1000 * 60 * 60)) / (1000 * 60));
+            var saniyeB = Math.floor((bayramaKalanSure % (1000 * 60)) / 1000);
+            var cdtext = "Bayrama " + gunB + "gün " + saatB + "saat " + dakikaB + "dakika " + saniyeB + "saniye kaldı.";
+            document.getElementById("bayramaKalanSonuc").innerHTML = cdtext;
+            document.getElementById("bayramaKalanSaatSonuc").innerHTML = (gunB*17)+saatB+1 + "saat / " + ((gunB+1)*24);
+            if (bayramaKalanSure < 0) {
+                clearInterval(x);
+            }
+        }, 1000);
+        var iftaraKalan = iftarSaat.getTime();
+        var y = setInterval(function () {
+            var suan = new Date().getTime();
+            var iftaraKalanSure = iftaraKalan - suan;
+            var saatI = Math.floor((iftaraKalanSure % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var dakikaI = Math.floor((iftaraKalanSure % (1000 * 60 * 60)) / (1000 * 60));
+            var saniyeI = Math.floor((iftaraKalanSure % (1000 * 60)) / 1000);
+            var cdtextI = "İftara " + saatI + "saat " + dakikaI + "dakika " + saniyeI + "saniye kaldı.";
+            document.getElementById("iftaraKalanSonuc").innerHTML = cdtextI;
+            if (iftaraKalanSure < 0) {
+                clearInterval(y);
+            }
+        }, 1000);
+        var mesSaat = new Date();
+        mesSaat.setHours(17, 30, 00, 000);
+        var mesaKalan = mesSaat.getTime();
+        var z = setInterval(function () {
+            var smd = new Date().getTime();
+            var mesaKalanSure = mesaKalan - smd;
+            var saatM = Math.floor((mesaKalanSure % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var dakikaM = Math.floor((mesaKalanSure % (1000 * 60 * 60)) / (1000 * 60));
+            var saniyeM = Math.floor((mesaKalanSure % (1000 * 60)) / 1000);
+            var cdtextM = saatM + "s " + dakikaM + "dk " + saniyeM + "sn ";
+            document.getElementById("mesaKalanSonuc").innerHTML = cdtextM;
+            if (mesaKalanSure < 0) {
+                clearInterval(z);
+            }
+        }, 1000);
+		}
+		else{		
+            document.getElementById("bayramaKalanSonuc").innerHTML = "0";
+            document.getElementById("iftaraKalanSonuc").innerHTML = "0";
+            document.getElementById("mesaKalanSonuc").innerHTML = "0";
+            document.getElementById("bayramaKalanSaatSonuc").innerHTML = "0";
+			}
+    </script>
+</body>
+</html>
